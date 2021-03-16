@@ -1,6 +1,7 @@
 package ru.sample.examples.animals;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 
 public abstract class Animal {
     protected BufferedReader reader;
@@ -17,6 +18,11 @@ public abstract class Animal {
     }
 
     public String getName() {
+        try {
+            name = reader.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return name;
     }
 }

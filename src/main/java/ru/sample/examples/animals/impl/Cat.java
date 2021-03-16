@@ -3,7 +3,6 @@ package ru.sample.examples.animals.impl;
 import ru.sample.examples.animals.Animal;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 
 public class Cat extends Animal {
 
@@ -13,11 +12,6 @@ public class Cat extends Animal {
 
     @Override
     public String getName() {
-        try {
-            this.name = reader.readLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return super.getName();
+        return "Cat have name: " + super.getName();
     }
 }
