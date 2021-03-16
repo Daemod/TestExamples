@@ -4,22 +4,22 @@ import java.io.BufferedReader;
 import java.io.IOException;
 
 public abstract class Animal {
-    protected BufferedReader reader;
+    private final BufferedReader reader; // создаем пустую ссылку.
 
     int age;
-    protected String name;
+    private String name;
 
     public Animal(BufferedReader reader) {
-        this.reader = reader;
+        this.reader = reader; //присваиваем ссылку, которую передали из main.
     }
 
     public int getAge() {
-        return age;
+        return age; // Пока что просто создан :D
     }
 
     public String getName() {
         try {
-            name = reader.readLine();
+            name = reader.readLine(); // Считываем из консоли строку.
         } catch (IOException e) {
             e.printStackTrace();
         }
