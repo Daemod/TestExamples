@@ -8,4 +8,9 @@ public class Dog extends Animal {
     public Dog(BufferedReader reader) {
         super(reader);
     }
+
+    @Override
+    public String getName() {
+        return "Dog has name: " + super.getName();
+    }
 }
