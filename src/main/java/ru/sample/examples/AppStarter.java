@@ -11,7 +11,7 @@ import java.io.InputStreamReader;
 
 public class AppStarter {
     public static void main(String[] args) {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in)); //Создаем экземляр для чтения из консоли
+/*        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in)); //Создаем экземляр для чтения из консоли
 
         Animal cat = new Cat(reader); //передаем ссылку reader в cat
         System.out.println(cat.getName());
@@ -26,6 +26,25 @@ public class AppStarter {
             reader.close(); //Закрываем чтение из консоли, т.к мы передавли ссылку на reader то BufferedReader закроется во всех Animals.
         } catch (IOException e) {
             e.printStackTrace();
+        }*/
+
+        //Пример с закрытием потока.
+        BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
+        try {
+            System.out.println(console.readLine());
+        } catch (Exception e) {
+            System.out.println("Не удалось считать данные: " + e.getLocalizedMessage());
+        } finally {
+            try {
+                console.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        try {
+            System.out.println(console.readLine());
+        } catch (IOException e) {
+            System.out.println("Не удалось вывести сообщение. Поток закрыт: " + e.getLocalizedMessage());
         }
     }
 }
